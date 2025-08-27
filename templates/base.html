@@ -64,6 +64,16 @@
     </div>
   </div>
 </nav>
+<center>
+{% if messages %}
+<ul class="messages">
+  {% for message in messages %}
+  <li class="{{message.tags}}">
+    {{message}}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}</center>
 <!-- Navbar End -->
 {% block content %}
 {% endblock content %}
