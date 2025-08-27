@@ -13,7 +13,7 @@ class Category(models.Model):
     name = models.CharField(max_length=255)
 
 class Blog(models.Model):
-    title =models.CharField(max_length=255)
+    title = models.CharField(max_length=255)
     category = models.ForeignKey(Category,on_delete=models.SET_NULL,null=True)
     author = models.CharField(max_length=255)
     created_date = models.DateTimeField(auto_now=True)
