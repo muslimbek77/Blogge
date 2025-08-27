@@ -1,5 +1,5 @@
 from django.db import models
-
+from ckeditor.fields import RichTextField
 
 class Contact(models.Model):
     name = models.CharField(max_length= 255)
@@ -8,3 +8,18 @@ class Contact(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.email}"
+
+class Category(models.Model):
+    name = models.CharField(max_length=255)
+
+class Blog(models.Model):
+    title =models.CharField(max_length=255)
+    category = models.ForeignKey(Category,on_delete=models.SET_NULL,null=True)
+    author = models.CharField(max_length=255)
+    created_date = models.DateTimeField(auto_now=True)
+    main_photo = models.ImageField(upload_to="BlogPhotos/")
+    content = RichTextField()
+
+    def __str__(self) -> str:
+        return self.title
+
