@@ -1,8 +1,9 @@
 from django.urls import path
-from .views import home_page,contact_page,about_page
+from .views import home_page,contact_page,about_page,blog_detail_page
 
 urlpatterns = [
     path('', home_page, name='home-page'),
     path('about/', about_page, name='about-page'),
     path('contact/', contact_page, name='contact-page'),
+    path('single-blog/',blog_detail_page,name='single-blog'),
 ]
