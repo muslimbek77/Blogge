@@ -39,223 +39,69 @@
           <h2>Articles</h2>
           <p>View the latest news on Blogger</p>
         </div>
+        {% for article in articles %}
         <article class="blog-post">
           <div class="blog-post-thumb">
-            <img src="{% static 'images/blog/blog-thum-1.png' %}" alt="blog-thum" />
+            <img src="{{article.main_photo.url}}" alt="blog-thum" />
           </div>
           <div class="blog-post-content">
             <div class="blog-post-tag">
-              <a href="category.html">Travel</a>
+              <a href="category.html">{{article.category.name}}</a>
             </div>
             <div class="blog-post-title">
-              <a href="single-blog.html">Five Things You Need to Know to Start Your Day</a>
+              <a href="{% url 'single-blog' article.pk %}">{{article.title}}</a>
             </div>
             <div class="blog-post-meta">
               <ul>
-                <li>By <a href="about.html">Mary Astor</a></li>
+                <li>By <a href="about.html">{{article.author}}</a></li>
                 <li>
                   <i class="fa fa-clock-o"></i>
-                  October 19, 2020 - 2 min
+                  {{article.created_date}}
                 </li>
               </ul>
             </div>
             <p>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy.
+              {{article.content |safe | truncatewords:10}}
             </p>
-            <a href="single-blog.html" class="blog-post-action">read more <i class="fa fa-angle-right"></i></a>
+            <a href="{% url 'single-blog' article.pk %}" class="blog-post-action">read more <i class="fa fa-angle-right"></i></a>
           </div>
         </article>
-        <article class="blog-post">
-          <div class="blog-post-thumb">
-            <a href="single-blog.html">
-              <img src="{% static 'images/blog/blog-thum-2.png' %}" alt="blog-thum" /></a>
-          </div>
-          <div class="blog-post-content">
-            <div class="blog-post-tag">
-              <a href="category.html">Travel</a>
-            </div>
-            <div class="blog-post-title">
-              <a href="single-blog.html">Five Things You Need to Know to Start Your Day</a>
-            </div>
-            <div class="blog-post-meta">
-              <ul>
-                <li>By <a href="about.html">Mary Astor</a></li>
-                <li>
-                  <i class="fa fa-clock-o"></i>
-                  October 19, 2020 - 2 min
-                </li>
-              </ul>
-            </div>
-
-            <p>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy.
-            </p>
-            <a href="single-blog.html" class="blog-post-action">read more <i class="fa fa-angle-right"></i></a>
-          </div>
-        </article>
-        <article class="blog-post">
-          <div class="blog-post-thumb">
-            <a href="single-blog.html">
-              <img src="{% static 'images/blog/blog-thum-3.png' %}" alt="blog-thum" /></a>
-          </div>
-          <div class="blog-post-content">
-            <div class="blog-post-tag">
-              <a href="category.html">Travel</a>
-            </div>
-            <div class="blog-post-title">
-              <a href="single-blog.html">Five Things You Need to Know to Start Your Day</a>
-            </div>
-            <div class="blog-post-meta">
-              <ul>
-                <li>By <a href="about.html">Mary Astor</a></li>
-                <li>
-                  <i class="fa fa-clock-o"></i>
-                  October 19, 2020 - 2 min
-                </li>
-              </ul>
-            </div>
-
-            <p>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy.
-            </p>
-            <a href="single-blog.html" class="blog-post-action">read more <i class="fa fa-angle-right"></i></a>
-          </div>
-        </article>
-        <article class="blog-post">
-          <div class="blog-post-thumb">
-            <a href="single-blog.html">
-              <img src="{% static 'images/blog/blog-thum-4.png' %}" alt="blog-thum" /></a>
-          </div>
-          <div class="blog-post-content">
-            <div class="blog-post-tag">
-              <a href="category.html">Travel</a>
-            </div>
-            <div class="blog-post-title">
-              <a href="single-blog.html">Five Things You Need to Know to Start Your Day</a>
-            </div>
-            <div class="blog-post-meta">
-              <ul>
-                <li>By <a href="about.html">Mary Astor</a></li>
-                <li>
-                  <i class="fa fa-clock-o"></i>
-                  October 19, 2020 - 2 min
-                </li>
-              </ul>
-            </div>
-
-            <p>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy.
-            </p>
-            <a href="single-blog.html" class="blog-post-action">read more <i class="fa fa-angle-right"></i></a>
-          </div>
-        </article>
-        <article class="blog-post">
-          <div class="blog-post-thumb">
-            <a href="single-blog.html">
-              <img src="{% static 'images/blog/blog-thum-5.png' %}" alt="blog-thum" /></a>
-          </div>
-          <div class="blog-post-content">
-            <div class="blog-post-tag">
-              <a href="category.html">Travel</a>
-            </div>
-            <div class="blog-post-title">
-              <a href="single-blog.html">Five Things You Need to Know to Start Your Day</a>
-            </div>
-            <div class="blog-post-meta">
-              <ul>
-                <li>By <a href="about.html">Mary Astor</a></li>
-                <li>
-                  <i class="fa fa-clock-o"></i>
-                  October 19, 2020 - 2 min
-                </li>
-              </ul>
-            </div>
-
-            <p>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy.
-            </p>
-            <a href="single-blog.html" class="blog-post-action">read more <i class="fa fa-angle-right"></i></a>
-          </div>
-        </article>
-        <article class="blog-post">
-          <div class="blog-post-thumb">
-            <a href="single-blog.html">
-              <img src="{% static 'images/blog/blog-thum-6.png' %}" alt="blog-thum" /></a>
-          </div>
-          <div class="blog-post-content">
-            <div class="blog-post-tag">
-              <a href="category.html">Travel</a>
-            </div>
-            <div class="blog-post-title">
-              <a href="single-blog.html">Five Things You Need to Know to Start Your Day</a>
-            </div>
-            <div class="blog-post-meta">
-              <ul>
-                <li>By <a href="about.html">Mary Astor</a></li>
-                <li>
-                  <i class="fa fa-clock-o"></i>
-                  October 19, 2020 - 2 min
-                </li>
-              </ul>
-            </div>
-
-            <p>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy.
-            </p>
-            <a href="single-blog.html" class="blog-post-action">read more <i class="fa fa-angle-right"></i></a>
-          </div>
-        </article>
-        <article class="blog-post">
-          <div class="blog-post-thumb">
-            <a href="single-blog.html">
-              <img src="{% static 'images/blog/blog-thum-7.png' %}" alt="blog-thum" /></a>
-          </div>
-          <div class="blog-post-content">
-            <div class="blog-post-tag">
-              <a href="category.html">Travel</a>
-            </div>
-            <div class="blog-post-title">
-              <a href="single-blog.html">Five Things You Need to Know to Start Your Day</a>
-            </div>
-            <div class="blog-post-meta">
-              <ul>
-                <li>By <a href="about.html">Mary Astor</a></li>
-                <li>
-                  <i class="fa fa-clock-o"></i>
-                  October 19, 2020 - 2 min
-                </li>
-              </ul>
-            </div>
-            <p>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy.
-            </p>
-            <a href="single-blog.html" class="blog-post-action">read more <i class="fa fa-angle-right"></i></a>
-          </div>
-        </article>
+        {% endfor %}
         <div class="blog-post-pagination">
-          <nav aria-label="Page navigation example" class="nav-bg">
-            <ul class="pagination">
-              <li class="page-item">
-                <a class="page-link active" href="#">1</a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item"><a class="page-link" href="#">4</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  <i class="fa fa-angle-right"></i>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+    <nav aria-label="Page navigation example" class="nav-bg">
+        <ul class="pagination">
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                </li>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <li class="page-item active">
+                        <a class="page-link" href="?page={{ num }} "  style="border-color: black;">{{ num }}</a>
+                    </li>
+                {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </li>
+            {% endif %}
+
+        </ul>
+    </nav>
+</div>
+
       </div>
       <div class="col-lg-4">
         <div class="blog-post-widget">
