@@ -33,3 +33,27 @@ class BlogDetailView(DetailView):
     model = Blog
     template_name = 'single-blog.html'
     context_object_name = 'blog'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        article = self.get_object()
+
+        # Oldingi maqola (created_date bo‘yicha)
+        prev_article = (
+            Blog.objects
+            .filter(created_date__lt=article.created_date)
+            .order_by('-created_date')
+            .first()
+        )
+
+        # Keyingi maqola (created_date bo‘yicha)
+        next_article = (
+            Blog.objects
+            .filter(created_date__gt=article.created_date)
+            .order_by('created_date')
+            .first()
+        )
+
+        context['prev_article'] = prev_article
+        context['next_article'] = next_article
+        return context
