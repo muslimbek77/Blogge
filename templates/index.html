@@ -111,10 +111,11 @@
           <div class="latest-widget-title">
             <h2>Trending post</h2>
           </div>
+          {% for blog in blogs %}
           <div class="latest-widget">
             <div class="latest-widget-thum">
               <a href="single-blog.html">
-                <img src="{% static 'images/blog/blog-thum-8.png' %}" alt="blog-thum" /></a>
+                <img src="{{blog.main_photo.url}}" alt="blog-thum" /></a>
               <div class="icon">
                 <a href="single-blog.html">
                   <img src="{% static 'images/blog/icon.svg' %}" alt="icon" /></a>
@@ -122,87 +123,19 @@
             </div>
             <div class="latest-widget-content">
               <div class="content-title">
-                <a href="single-blog.html">Five Things You Need to Know to Start Your Day</a>
+                <a href="{% url 'single-blog' blog.pk %}">{{blog.title}}</a>
               </div>
               <div class="content-meta">
                 <ul>
                   <li>
                     <i class="fa fa-clock-o"></i>
-                    October 19, 2020 - 2 min
+                    {{blog.created_date}}
                   </li>
                 </ul>
               </div>
             </div>
           </div>
-          <div class="latest-widget">
-            <div class="latest-widget-thum">
-              <a href="single-blog.html">
-                <img src="{% static 'images/blog/blog-thum-9.png' %}" alt="blog-thum" /></a>
-              <div class="icon">
-                <a href="single-blog.html">
-                  <img src="{% static 'images/blog/icon.svg' %}" alt="icon" /></a>
-              </div>
-            </div>
-            <div class="latest-widget-content">
-              <div class="content-title">
-                <a href="single-blog.html">Five Things You Need to Know to Start Your Day</a>
-              </div>
-              <div class="content-meta">
-                <ul>
-                  <li>
-                    <i class="fa fa-clock-o"></i>
-                    October 19, 2020 - 2 min
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="latest-widget">
-            <div class="latest-widget-thum">
-              <a href="single-blog.html">
-                <img src="{% static 'images/blog/blog-thum-10.png' %}" alt="blog-thum" /></a>
-              <div class="icon">
-                <a href="single-blog.html">
-                  <img src="{% static 'images/blog/icon.svg' %}" alt="icon" /></a>
-              </div>
-            </div>
-            <div class="latest-widget-content">
-              <div class="content-title">
-                <a href="single-blog.html">Five Things You Need to Know to Start Your Day</a>
-              </div>
-              <div class="content-meta">
-                <ul>
-                  <li>
-                    <i class="fa fa-clock-o"></i>
-                    October 19, 2020 - 2 min
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="latest-widget">
-            <div class="latest-widget-thum">
-              <a href="single-blog.html">
-                <img src="{% static 'images/blog/blog-thum-11.png' %}" alt="blog-thum" /></a>
-              <div class="icon">
-                <a href="single-blog.html">
-                  <img src="{% static 'images/blog/icon.svg' %}" alt="icon" /></a>
-              </div>
-            </div>
-            <div class="latest-widget-content">
-              <div class="content-title">
-                <a href="single-blog.html">Five Things You Need to Know to Start Your Day</a>
-              </div>
-              <div class="content-meta">
-                <ul>
-                  <li>
-                    <i class="fa fa-clock-o"></i>
-                    October 19, 2020 - 2 min
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </div>

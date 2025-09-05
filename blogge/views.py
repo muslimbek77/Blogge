@@ -15,6 +15,13 @@ class HomePageView(ListView):
     template_name = 'index.html'
     paginate_by = 7
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        most_view = Blog.objects.order_by('-view_count')[:4]
+        context['blogs'] = most_view
+
+        return context
+
 
 def contact_page(request):
     if request.method == 'POST':
@@ -37,6 +44,9 @@ class BlogDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         article = self.get_object()
+        article.view_count += 1 # ko'rishlar soniga 1 qo'shildi
+        article.save() #blogni saqladik
+        
 
         # Oldingi maqola (created_date bo‘yicha)
         prev_article = (
