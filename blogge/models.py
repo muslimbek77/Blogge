@@ -11,6 +11,9 @@ class Contact(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
+    
+    def __str__(self) -> str:
+        return self.name
 
 class Blog(models.Model):
     title = models.CharField(max_length=255)
@@ -19,6 +22,7 @@ class Blog(models.Model):
     created_date = models.DateTimeField(auto_now=True)
     main_photo = models.ImageField(upload_to="BlogPhotos/")
     content = RichTextField()
+    view_count = models.IntegerField(default=0) #ko'rishlar soni
 
     def __str__(self) -> str:
         return self.title
